@@ -8,7 +8,7 @@ A new Flutter project.
 
 ## Screenshots
 <img src="visual.gif"/>
-<img src="flutter_01.jpg"/>
+<img src="flutter_01.png"/>
 <img src="flutter_02.jpg"/>
 
 This project is a starting point for a Flutter application.
