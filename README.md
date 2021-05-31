@@ -7,9 +7,7 @@ A new Flutter project.
 ### Show some :heart: and star the repo to support the project
 
 ## Screenshots
-<img src="visual.gif"/>
-<img src="flutter_01.jpg"/>
-<img src="flutter_02.jpg"/>
+<img src="https://github.com/Rajkumar07793/music_visualizer_package/blob/master/visual.gif"/>
 
 This project is a starting point for a Flutter application.
 
