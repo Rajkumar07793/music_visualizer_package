@@ -7,11 +7,9 @@ A new Flutter project.
 ### Show some :heart: and star the repo to support the project
 
 ## Screenshots
-<img src="visual.gif" height="300em" /> <img src="ss2.png" height="300em" />
 <img src="visual.gif"/>
 <img src="flutter_01.jpg"/>
 <img src="flutter_02.jpg"/>
-[![SC2 Video](doc/SC2_youtube.PNG)](https://www.youtube.com/watch?v=--b-9HrKK6w "SC2 Mini game - Click to Watch!")
 
 This project is a starting point for a Flutter application.
 
