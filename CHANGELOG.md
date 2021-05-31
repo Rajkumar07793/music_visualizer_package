@@ -1,3 +1,7 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 31/05/2021_05:00.
 
-* TODO: Describe initial release.
+* initial release.
+
+## [0.0.2] - 31/05/2021_06:30.
+
+* remove bugs.
