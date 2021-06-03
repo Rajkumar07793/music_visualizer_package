@@ -6,24 +6,16 @@ import 'package:flutter/animation.dart';
 
 class MusicVisualizer extends StatelessWidget {
   final List<Color> colors;
-
-  ///list of colors for bars
   final List<int> duration;
-
-  ///list of duration for bars to animate
   final barCount;
+  final curve;
 
-  ///number of bar counts
-  // final StreamController<bool> streamController;
-
-  ///to control the animation
-  MusicVisualizer(
-      {Key key,
-      @required this.colors,
-      @required this.duration,
-      @required this.barCount,
-      // @required this.streamController
-      })
+  MusicVisualizer({Key key,
+    @required this.colors,
+    @required this.duration,
+    @required this.barCount,
+    this.curve = Curves.easeInQuad,
+  })
       : super(key: key);
 
   @override
@@ -32,24 +24,24 @@ class MusicVisualizer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: new List<Widget>.generate(
             barCount,
-            (index) => VisualComponent(
-                // stream: streamController.stream,
-                duration: duration[index % 5],
-                color: colors[index % 4])));
+                (index) =>
+                VisualComponent(
+                    curve: curve,
+                    duration: duration[index % 5],
+                    color: colors[index % 4])));
   }
 }
 
 class VisualComponent extends StatefulWidget {
   final int duration;
   final Color color;
-  // final Stream<bool> stream;
+  final Curve curve;
 
-  const VisualComponent(
-      {Key key,
-      @required this.duration,
-      @required this.color,
-      // @required this.stream
-      })
+  const VisualComponent({Key key,
+    @required this.duration,
+    @required this.color,
+    @required this.curve
+  })
       : super(key: key);
 
   @override
@@ -64,13 +56,6 @@ class _VisualComponentState extends State<VisualComponent>
   @override
   void initState() {
     super.initState();
-    // widget.stream.asBroadcastStream().listen((bool isPlay) {
-    //   if(isPlay) {
-    //     if(mounted) animationController.repeat(reverse: true);
-    //   } else {
-    //     if(mounted)animationController.reset();
-    //   }
-    // });
     animate();
   }
 
@@ -88,7 +73,7 @@ class _VisualComponentState extends State<VisualComponent>
     animationController = AnimationController(
         duration: Duration(milliseconds: widget.duration), vsync: this);
     final curvedAnimation =
-        CurvedAnimation(parent: animationController, curve: Curves.easeInQuad);
+    CurvedAnimation(parent: animationController, curve: widget.curve);
     animation = Tween<double>(begin: 0, end: 50).animate(curvedAnimation)
       ..addListener(() {
         update();

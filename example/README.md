@@ -1,16 +1,8 @@
-# visualizer_example
+# example
 
 A new Flutter project.
 
 ## Getting Started
-
-### Show some :heart: and star the repo to support the project
-
-## Screenshots
-<img src="visual.gif"/>
-<img src="flutter_01.png"/>
-<img src="flutter_02.png"/>
-[![SC2 Video](doc/SC2_youtube.PNG)](https://www.youtube.com/watch?v=--b-9HrKK6w "SC2 Mini game - Click to Watch!")
 
 This project is a starting point for a Flutter application.
 
