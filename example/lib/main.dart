@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   ];
 
   final List<int> duration = [900, 700, 600, 800, 500];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MusicVisualizer(
-        barCount:30,
+        barCount: 30,
         colors: colors,
         duration: duration,
       ),

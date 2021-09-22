@@ -1,3 +1,7 @@
+## [0.0.9] - 22/09/2021 11:20 PM.
+
+* migrated to null safety.
+
 ## [0.0.8] - 03/06/2021 05:20.
 
 * added Example.

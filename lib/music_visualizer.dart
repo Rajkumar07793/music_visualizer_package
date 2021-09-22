@@ -1,22 +1,21 @@
 library music_visualizer;
 
-import 'dart:async';
 import "package:flutter/material.dart";
 import 'package:flutter/animation.dart';
 
 class MusicVisualizer extends StatelessWidget {
-  final List<Color> colors;
-  final List<int> duration;
+  final List<Color>? colors;
+  final List<int>? duration;
   final barCount;
-  final curve;
+  final Curve? curve;
 
-  MusicVisualizer({Key key,
+  MusicVisualizer({
+    Key? key,
     @required this.colors,
     @required this.duration,
     @required this.barCount,
     this.curve = Curves.easeInQuad,
-  })
-      : super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,24 +23,23 @@ class MusicVisualizer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: new List<Widget>.generate(
             barCount,
-                (index) =>
-                VisualComponent(
-                    curve: curve,
-                    duration: duration[index % 5],
-                    color: colors[index % 4])));
+            (index) => VisualComponent(
+                curve: curve!,
+                duration: duration![index % 5],
+                color: colors![index % 4])));
   }
 }
 
 class VisualComponent extends StatefulWidget {
-  final int duration;
-  final Color color;
-  final Curve curve;
+  final int? duration;
+  final Color? color;
+  final Curve? curve;
 
-  const VisualComponent({Key key,
-    @required this.duration,
-    @required this.color,
-    @required this.curve
-  })
+  const VisualComponent(
+      {Key? key,
+      @required this.duration,
+      @required this.color,
+      @required this.curve})
       : super(key: key);
 
   @override
@@ -50,8 +48,8 @@ class VisualComponent extends StatefulWidget {
 
 class _VisualComponentState extends State<VisualComponent>
     with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController animationController;
+  Animation<double>? animation;
+  AnimationController? animationController;
 
   @override
   void initState() {
@@ -61,24 +59,24 @@ class _VisualComponentState extends State<VisualComponent>
 
   @override
   void dispose() {
-    animation..removeListener(() {});
-    animation..removeStatusListener((status) {});
-    animationController.stop();
-    animationController.reset();
-    animationController.dispose();
+    animation!..removeListener(() {});
+    animation!..removeStatusListener((status) {});
+    animationController!.stop();
+    animationController!.reset();
+    animationController!.dispose();
     super.dispose();
   }
 
   void animate() {
     animationController = AnimationController(
-        duration: Duration(milliseconds: widget.duration), vsync: this);
+        duration: Duration(milliseconds: widget.duration!), vsync: this);
     final curvedAnimation =
-    CurvedAnimation(parent: animationController, curve: widget.curve);
+        CurvedAnimation(parent: animationController!, curve: widget.curve!);
     animation = Tween<double>(begin: 0, end: 50).animate(curvedAnimation)
       ..addListener(() {
         update();
       });
-    animationController.repeat(reverse: true);
+    animationController!.repeat(reverse: true);
   }
 
   void update() {
@@ -89,7 +87,7 @@ class _VisualComponentState extends State<VisualComponent>
   Widget build(BuildContext context) {
     return Container(
       width: 3,
-      height: animation.value,
+      height: animation!.value,
       decoration: BoxDecoration(
           color: widget.color, borderRadius: BorderRadius.circular(5)),
     );
