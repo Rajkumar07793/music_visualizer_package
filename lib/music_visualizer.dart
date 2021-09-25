@@ -6,7 +6,7 @@ import 'package:flutter/animation.dart';
 class MusicVisualizer extends StatelessWidget {
   final List<Color>? colors;
   final List<int>? duration;
-  final barCount;
+  final int? barCount;
   final Curve? curve;
 
   MusicVisualizer({
@@ -22,7 +22,7 @@ class MusicVisualizer extends StatelessWidget {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: new List<Widget>.generate(
-            barCount,
+            barCount!,
             (index) => VisualComponent(
                 curve: curve!,
                 duration: duration![index % 5],

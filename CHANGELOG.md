@@ -1,3 +1,11 @@
+## [1.0.2] - 25/09/2021 04:04 PM.
+
+* removed bugs.
+
+## [1.0.1] - 25/09/2021 01:06 PM.
+
+* provided documentation.
+
 ## [1.0.0] - 23/09/2021 01:20 AM.
 
 * migrated to null safety.
