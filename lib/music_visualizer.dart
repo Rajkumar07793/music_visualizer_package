@@ -1,7 +1,6 @@
 library music_visualizer;
 
 import "package:flutter/material.dart";
-import 'package:flutter/animation.dart';
 
 class MusicVisualizer extends StatelessWidget {
   final List<Color>? colors;
@@ -9,7 +8,7 @@ class MusicVisualizer extends StatelessWidget {
   final int? barCount;
   final Curve? curve;
 
-  MusicVisualizer({
+  const MusicVisualizer({
     Key? key,
     @required this.colors,
     @required this.duration,
@@ -21,7 +20,7 @@ class MusicVisualizer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: new List<Widget>.generate(
+        children: List<Widget>.generate(
             barCount!,
             (index) => VisualComponent(
                 curve: curve!,
@@ -59,8 +58,8 @@ class _VisualComponentState extends State<VisualComponent>
 
   @override
   void dispose() {
-    animation!..removeListener(() {});
-    animation!..removeStatusListener((status) {});
+    animation!.removeListener(() {});
+    animation!.removeStatusListener((status) {});
     animationController!.stop();
     animationController!.reset();
     animationController!.dispose();

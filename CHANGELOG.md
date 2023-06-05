@@ -1,3 +1,11 @@
+## [1.0.4] - 05/06/2023 07:19 PM.
+
+* Issue tracker added.
+
+## [1.0.3] - 05/06/2023 07:14 PM.
+
+* Buy me a coffy added in Readme.md.
+
 ## [1.0.2] - 25/09/2021 04:04 PM.
 
 * removed bugs.

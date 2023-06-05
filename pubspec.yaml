@@ -1,8 +1,9 @@
 name: music_visualizer
 description: this plugin help developers to show a music wave through animation.
-version: 1.0.2
+version: 1.0.4
 homepage: "https://github.com/Rajkumar07793/music_visualizer_package"
 documentation: "https://github.com/Rajkumar07793/music_visualizer_package/blob/22-09-2021_null-safety/README.md"
+issue_tracker: https://github.com/Rajkumar07793/music_visualizer_package/issues
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -17,10 +18,9 @@ dependencies:
 #  vector_math: ^2.1.1
 
 dev_dependencies:
-#  flutter_test:
-#    sdk: flutter
+  #  flutter_test:
+  #    sdk: flutter
   flutter_lints: ^1.0.4
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
