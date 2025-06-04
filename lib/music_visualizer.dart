@@ -58,28 +58,30 @@ class _VisualComponentState extends State<VisualComponent>
 
   @override
   void dispose() {
-    animation!.removeListener(() {});
-    animation!.removeStatusListener((status) {});
-    animationController!.stop();
-    animationController!.reset();
-    animationController!.dispose();
+    animationController.stop();
+    animationController.dispose();
     super.dispose();
   }
 
   void animate() {
     animationController = AnimationController(
-        duration: Duration(milliseconds: widget.duration!), vsync: this);
-    final curvedAnimation =
-        CurvedAnimation(parent: animationController!, curve: widget.curve!);
+      duration: Duration(milliseconds: widget.duration!),
+      vsync: this,
+    );
+
+    final curvedAnimation = CurvedAnimation(
+      parent: animationController,
+      curve: widget.curve!,
+    );
+
     animation = Tween<double>(begin: 0, end: 50).animate(curvedAnimation)
       ..addListener(() {
-        update();
+        if (mounted) {
+          setState(() {});
+        }
       });
-    animationController!.repeat(reverse: true);
-  }
 
-  void update() {
-    if (mounted) setState(() {});
+    animationController.repeat(reverse: true);
   }
 
   @override
