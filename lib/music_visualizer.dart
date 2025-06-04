@@ -30,15 +30,15 @@ class MusicVisualizer extends StatelessWidget {
 }
 
 class VisualComponent extends StatefulWidget {
-  final int? duration;
-  final Color? color;
-  final Curve? curve;
+  final int duration;
+  final Color color;
+  final Curve curve;
 
   const VisualComponent(
       {Key? key,
-      @required this.duration,
-      @required this.color,
-      @required this.curve})
+      required this.duration,
+      required this.color,
+      required this.curve})
       : super(key: key);
 
   @override
@@ -47,50 +47,48 @@ class VisualComponent extends StatefulWidget {
 
 class _VisualComponentState extends State<VisualComponent>
     with SingleTickerProviderStateMixin {
-  Animation<double>? animation;
-  AnimationController? animationController;
+  late final AnimationController _animationController;
+  late final Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
-    animate();
-  }
-
-  @override
-  void dispose() {
-    animationController.stop();
-    animationController.dispose();
-    super.dispose();
-  }
-
-  void animate() {
-    animationController = AnimationController(
-      duration: Duration(milliseconds: widget.duration!),
+    _animationController = AnimationController(
+      duration: Duration(milliseconds: widget.duration),
       vsync: this,
     );
 
     final curvedAnimation = CurvedAnimation(
-      parent: animationController,
-      curve: widget.curve!,
+      parent: _animationController,
+      curve: widget.curve,
     );
 
-    animation = Tween<double>(begin: 0, end: 50).animate(curvedAnimation)
+    _animation = Tween<double>(begin: 0, end: 50).animate(curvedAnimation)
       ..addListener(() {
         if (mounted) {
           setState(() {});
         }
       });
 
-    animationController.repeat(reverse: true);
+    _animationController.repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _animationController.stop();
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 3,
-      height: animation!.value,
+      height: _animation.value,
       decoration: BoxDecoration(
-          color: widget.color, borderRadius: BorderRadius.circular(5)),
+        color: widget.color,
+        borderRadius: BorderRadius.circular(5),
+      ),
     );
   }
 }
